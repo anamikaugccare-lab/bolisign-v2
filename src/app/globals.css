@@ -230,3 +230,72 @@ body {
   box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
 }
 
+/* Responsive Grid for Interpreter & Camera */
+.vision-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 992px) {
+  .vision-grid.standard-view {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  }
+}
+
+.vision-grid.theater-view {
+  grid-template-columns: 1fr;
+}
+
+/* High-tech Viewfinder HUD Frame */
+.viewfinder-container {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #020617;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+  min-height: 460px;
+  height: clamp(460px, 58vh, 640px);
+}
+
+.viewfinder-container.is-expanded {
+  min-height: 560px;
+  height: clamp(560px, 75vh, 850px);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.25), 0 16px 36px -5px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 640px) {
+  .viewfinder-container {
+    min-height: 380px;
+    height: clamp(380px, 52vh, 480px);
+  }
+  .viewfinder-container.is-expanded {
+    min-height: 480px;
+    height: clamp(480px, 68vh, 640px);
+  }
+}
+
+/* Sleek Sci-Fi Vision HUD Corners */
+.hud-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  z-index: 5;
+  border-color: rgba(56, 189, 248, 0.55);
+  border-style: solid;
+}
+.hud-tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; border-top-left-radius: 6px; }
+.hud-tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; border-top-right-radius: 6px; }
+.hud-bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; border-bottom-left-radius: 6px; }
+.hud-br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; border-bottom-right-radius: 6px; }
+
+

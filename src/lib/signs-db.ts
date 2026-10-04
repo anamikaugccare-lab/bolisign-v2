@@ -7,6 +7,28 @@ const DATA_FILE = path.join(process.cwd(), 'data', 'custom_signs.json');
 // Built-in Indian Sign Language (ISL) baseline gestures
 export const DEFAULT_SIGNS: CustomSign[] = [
   {
+    id: 'sign-good-morning',
+    nameHindi: 'शुभ प्रभात (Good Morning)',
+    nameEnglish: 'Good Morning',
+    category: 'daily',
+    signType: 'dynamic',
+    motionDirection: 'upward',
+    bodyLocation: 'chest',
+    landmarksSample: [],
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'sign-alvida',
+    nameHindi: 'अलविदा (Bye)',
+    nameEnglish: 'Goodbye / Bye',
+    category: 'daily',
+    signType: 'dynamic',
+    motionDirection: 'wave',
+    bodyLocation: 'neutral',
+    landmarksSample: [],
+    createdAt: new Date().toISOString()
+  },
+  {
     id: 'sign-namaste',
     nameHindi: 'नमस्ते',
     nameEnglish: 'Namaste / Hello',
@@ -121,9 +143,24 @@ function ensureDataDirectory(filePath: string) {
   }
 }
 
+function deduplicateSigns(signs: CustomSign[]): CustomSign[] {
+  const seen = new Set<string>();
+  const res: CustomSign[] = [];
+  for (const s of signs) {
+    if (!s || !s.nameHindi) continue;
+    const norm = s.nameHindi.trim().toLowerCase();
+    if (!norm) continue;
+    if (!seen.has(norm)) {
+      seen.add(norm);
+      res.push(s);
+    }
+  }
+  return res;
+}
+
 export function getAllSigns(): CustomSign[] {
-  if (memoryCache && memoryCache.length > 0) {
-    return memoryCache;
+  if (memoryCache !== null) {
+    return deduplicateSigns(memoryCache);
   }
 
   const targetFile = getDataFilePath();
@@ -133,40 +170,68 @@ export function getAllSigns(): CustomSign[] {
     if (fs.existsSync(targetFile)) {
       const raw = fs.readFileSync(targetFile, 'utf8');
       const signs = JSON.parse(raw) as CustomSign[];
-      memoryCache = signs;
-      return signs;
+      memoryCache = deduplicateSigns(signs);
+      return memoryCache;
     }
     if (fs.existsSync(DATA_FILE)) {
       const raw = fs.readFileSync(DATA_FILE, 'utf8');
       const signs = JSON.parse(raw) as CustomSign[];
-      memoryCache = signs;
-      return signs;
+      memoryCache = deduplicateSigns(signs);
+      return memoryCache;
     }
-    memoryCache = [...DEFAULT_SIGNS];
+    memoryCache = deduplicateSigns([...DEFAULT_SIGNS]);
+    persistSigns(memoryCache);
     return memoryCache;
   } catch (err) {
     console.error('Error reading signs data file:', err);
-    memoryCache = [...DEFAULT_SIGNS];
+    memoryCache = deduplicateSigns([...DEFAULT_SIGNS]);
     return memoryCache;
   }
 }
 
 function persistSigns(signs: CustomSign[]) {
-  memoryCache = signs;
+  const cleanSigns = deduplicateSigns(signs);
+  memoryCache = cleanSigns;
   const targetFile = getDataFilePath();
   try {
     ensureDataDirectory(targetFile);
-    fs.writeFileSync(targetFile, JSON.stringify(signs, null, 2), 'utf8');
+    fs.writeFileSync(targetFile, JSON.stringify(cleanSigns, null, 2), 'utf8');
   } catch (err) {
     console.warn('Persist to disk failed, maintained in memory:', err);
   }
 }
 
-export function saveNewSign(sign: Omit<CustomSign, 'id' | 'createdAt'>): CustomSign {
-  const signs = [...getAllSigns()];
+export function saveNewSign(sign: Partial<CustomSign> & { nameHindi: string }): CustomSign {
+  let signs = deduplicateSigns(getAllSigns());
+  const normName = (sign.nameHindi || '').trim().toLowerCase();
+
+  const existingIndex = signs.findIndex(s => 
+    (sign.id && s.id === sign.id) ||
+    (s.nameHindi && s.nameHindi.trim().toLowerCase() === normName)
+  );
+
+  if (existingIndex !== -1) {
+    const updated: CustomSign = {
+      ...signs[existingIndex],
+      ...sign,
+      id: signs[existingIndex].id, // preserve stable ID
+      updatedAt: new Date().toISOString()
+    };
+    signs[existingIndex] = updated;
+    persistSigns(signs);
+    return updated;
+  }
+
   const newSign: CustomSign = {
+    nameEnglish: sign.nameHindi,
+    category: 'custom',
+    landmarksSample: [],
+    bodyLocation: 'neutral',
+    signType: 'static',
+    motionDirection: 'none',
+    recordedBy: 'User',
     ...sign,
-    id: 'sign-custom-' + Date.now(),
+    id: sign.id || ('sign-custom-' + Date.now()),
     createdAt: new Date().toISOString()
   };
   signs.push(newSign);
@@ -177,12 +242,24 @@ export function saveNewSign(sign: Omit<CustomSign, 'id' | 'createdAt'>): CustomS
 export function deleteSign(id: string): boolean {
   let signs = [...getAllSigns()];
   const initialLen = signs.length;
-  signs = signs.filter(s => s.id !== id);
+  signs = signs.filter(s => s.id !== id && s.nameHindi !== id);
   if (signs.length !== initialLen) {
     persistSigns(signs);
     return true;
   }
   return false;
+}
+
+export function resetToDefaults(): CustomSign[] {
+  memoryCache = [...DEFAULT_SIGNS];
+  persistSigns(memoryCache);
+  return memoryCache;
+}
+
+export function clearAllSigns(): CustomSign[] {
+  memoryCache = [];
+  persistSigns([]);
+  return [];
 }
 
 export function updateSign(id: string, updates: Partial<CustomSign>): CustomSign | null {

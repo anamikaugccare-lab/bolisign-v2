@@ -20,6 +20,10 @@ export interface CustomSign {
     thumbPointsUp?: boolean;
     isPinch?: boolean;
   };
+  bodyLocation?: 'forehead' | 'chin' | 'cheek' | 'chest' | 'neutral';
+  signType?: 'static' | 'dynamic';
+  motionDirection?: 'none' | 'upward' | 'downward' | 'outward' | 'wave' | 'to_right' | 'to_left';
+  endBodyLocation?: 'forehead' | 'chin' | 'cheek' | 'chest' | 'neutral';
   recordedBy?: string;
   createdAt: string;
   confidenceThreshold?: number;
@@ -30,6 +34,9 @@ export interface RecognizedResult {
   signNameEnglish: string;
   confidence: number;
   category: string;
+  bodyLocation?: 'forehead' | 'chin' | 'cheek' | 'chest' | 'neutral';
+  signType?: 'static' | 'dynamic';
+  motionDirection?: string;
 }
 
 export interface InterpretRequest {

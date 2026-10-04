@@ -64,7 +64,16 @@ Respond ONLY with a JSON object in this exact format:
     let fluentHindi = '';
     let englishMeaning = '';
 
-    if (normalized.includes('नमस्ते') || normalized.includes('namaste')) {
+    // Compound Multi-Action Sign Detection (e.g. Good + Morning = Good Morning)
+    if ((normalized.includes('अच्छा') && normalized.includes('सुबह')) || 
+        (normalized.includes('गुड') && normalized.includes('मॉर्निंग')) || 
+        normalized.includes('शुभ प्रभात') || normalized.includes('good morning')) {
+      fluentHindi = 'शुभ प्रभात! आपका दिन मंगलमय और सुखद हो।';
+      englishMeaning = 'Good Morning! Have a pleasant and wonderful day.';
+    } else if (normalized.includes('अलविदा') || normalized.includes('बाय') || normalized.includes('bye')) {
+      fluentHindi = 'अलविदा! आपसे मिलकर बहुत अच्छा लगा, फिर मिलेंगे।';
+      englishMeaning = 'Goodbye! It was nice meeting you, see you again.';
+    } else if (normalized.includes('नमस्ते') || normalized.includes('namaste')) {
       fluentHindi = 'नमस्ते! आप कैसे हैं?';
       englishMeaning = 'Hello! How are you?';
     } else if (normalized.includes('पानी') || normalized.includes('water')) {
