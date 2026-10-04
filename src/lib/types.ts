@@ -26,6 +26,7 @@ export interface CustomSign {
   endBodyLocation?: 'forehead' | 'chin' | 'cheek' | 'chest' | 'neutral';
   recordedBy?: string;
   createdAt: string;
+  updatedAt?: string;
   confidenceThreshold?: number;
 }
 
