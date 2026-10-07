@@ -7,7 +7,7 @@ import {
   Camera, CheckCircle, AlertCircle, ArrowRight, ArrowLeft, 
   RotateCcw, Sparkles, Check, Info, ShieldCheck, ChevronRight
 } from 'lucide-react';
-import { CustomSign } from '@/lib/types';
+import { CustomSign, FingerSignature, TwoHandRelation } from '@/lib/types';
 import { getMergedSigns, saveSignPersistently } from '@/lib/storage-sync';
 
 // Web Audio API beep generator (0 external assets required)
@@ -36,7 +36,9 @@ export default function SignTrainerPage() {
   // Step 1: Sign Meta Details
   const [signNameHindi, setSignNameHindi] = useState<string>('');
   const [signNameEnglish, setSignNameEnglish] = useState<string>('');
-  const [signCategory, setSignCategory] = useState<'college' | 'daily' | 'emergency'>('college');
+  const [signCategory, setSignCategory] = useState<'college' | 'daily' | 'emergency' | 'alphabet' | 'number' | 'custom'>('college');
+  const [trainHandsCount, setTrainHandsCount] = useState<1 | 2>(1);
+  const [trainHandType, setTrainHandType] = useState<'right' | 'left' | 'both' | 'any'>('right');
   const [targetLocation, setTargetLocation] = useState<'forehead' | 'chin' | 'cheek' | 'chest' | 'neutral'>('neutral');
   const [signType, setSignType] = useState<'static' | 'dynamic'>('static');
   const [motionDirection, setMotionDirection] = useState<'none' | 'upward' | 'downward' | 'outward' | 'wave' | 'to_right' | 'to_left'>('none');
@@ -213,6 +215,44 @@ export default function SignTrainerPage() {
 
   // Distance helper
   const dist = (p1: any, p2: any) => Math.hypot(p1.x - p2.x, p1.y - p2.y);
+
+  const computeHandDirection = (lm: any[]): { direction: 'up' | 'horizontal_head' | 'forward' | 'down'; label: string; icon: string } => {
+    if (!lm || lm.length < 21) return { direction: 'up', label: 'ऊपर सीधी', icon: '⬆️' };
+    const indexKnuckle = lm[5];
+    const indexTip = lm[8];
+    const dx = indexTip.x - indexKnuckle.x;
+    const dy = indexTip.y - indexKnuckle.y;
+
+    if (Math.abs(dx) > Math.abs(dy) * 0.70 && Math.abs(dx) > 0.05) {
+      return { direction: 'horizontal_head', label: 'माथा/कनपटी (क्षैतिज)', icon: '👈' };
+    }
+    if (dy < -0.06 && Math.abs(dy) >= Math.abs(dx) * 0.85) {
+      return { direction: 'up', label: 'ऊपर सीधी', icon: '⬆️' };
+    }
+    if (dy > 0.06) {
+      return { direction: 'down', label: 'नीचे', icon: '⬇️' };
+    }
+    return { direction: 'forward', label: 'आगे / सामने', icon: '↗️' };
+  };
+
+  const computeHandFacing = (lm: any[], handedness: string = 'Right'): { facing: 'front' | 'back'; label: string; icon: string } => {
+    if (!lm || lm.length < 21) return { facing: 'front', label: 'हथेली सामने (आगे का भाग)', icon: '🖐️' };
+    const wrist = lm[0];
+    const indexMcp = lm[5];
+    const pinkyMcp = lm[17];
+
+    const vUp = { x: lm[9].x - wrist.x, y: lm[9].y - wrist.y };
+    const vAcross = { x: pinkyMcp.x - indexMcp.x, y: pinkyMcp.y - indexMcp.y };
+    const crossZ = vUp.x * vAcross.y - vUp.y * vAcross.x;
+
+    const isFront = (handedness === 'Left') ? (crossZ < 0) : (crossZ > 0);
+    if (isFront) {
+      return { facing: 'front', label: 'हथेली सामने (आगे का भाग)', icon: '🖐️' };
+    } else {
+      return { facing: 'back', label: 'उल्टा हाथ (पीछे का भाग)', icon: '🤚' };
+    }
+  };
+
 
   type BodyLocation = 'forehead' | 'chin' | 'cheek' | 'chest' | 'neutral';
 
@@ -459,6 +499,9 @@ export default function SignTrainerPage() {
       // If re-training the same sign, don't flag conflict against itself
       if (s.nameHindi.trim() === signNameHindi.trim()) continue;
 
+      if (s.handType && captured.handType && s.handType !== 'any' && captured.handType !== 'any' && s.handType !== captured.handType) {
+        continue;
+      }
       if (s.fingerSignature) {
         const matches = 
           s.fingerSignature.index === sig.index &&

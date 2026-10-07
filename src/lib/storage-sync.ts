@@ -1,7 +1,7 @@
 import { CustomSign } from './types';
 
-const STORAGE_KEY = 'bolisign_custom_signs_v1';
-const DELETED_SIGNS_KEY = 'bolisign_deleted_sign_ids_v1';
+const STORAGE_KEY = 'bolisign_custom_signs_v5';
+const DELETED_SIGNS_KEY = 'bolisign_deleted_sign_ids_v5';
 
 /**
  * Get all deleted sign IDs/names stored in localStorage.
@@ -9,6 +9,14 @@ const DELETED_SIGNS_KEY = 'bolisign_deleted_sign_ids_v1';
 export function getDeletedSignIds(): Set<string> {
   if (typeof window === 'undefined') return new Set();
   try {
+    // Purge legacy storage versions once
+    try {
+      localStorage.removeItem('bolisign_custom_signs_v1');
+      localStorage.removeItem('bolisign_custom_signs_v2');
+      localStorage.removeItem('bolisign_custom_signs_v3');
+      localStorage.removeItem('bolisign_custom_signs_v4');
+    } catch (e) {}
+
     const raw = localStorage.getItem(DELETED_SIGNS_KEY);
     if (raw) {
       const arr = JSON.parse(raw);
@@ -86,6 +94,12 @@ export async function getMergedSigns(): Promise<CustomSign[]> {
     if (!s || !s.nameHindi) return;
     const name = s.nameHindi.trim();
     if (!name) return;
+    
+    // Explicitly reject old temporary test signs
+    if (s.id === 'sign-custom-1791134835554' || s.id === 'sign-custom-1791134621133' || name === 'मदद') {
+      return;
+    }
+
     const key = name.toLowerCase();
 
     // Check if deleted
@@ -278,21 +292,32 @@ export async function clearAllSignsPersistently(): Promise<boolean> {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       const list: CustomSign[] = stored ? JSON.parse(stored) : [];
+      const delSet = getDeletedSignIds();
+
+      // Mark all custom and default signs as deleted
       list.forEach(s => {
-        markSignDeleted(s.id);
-        markSignDeleted(s.nameHindi);
+        if (s.id) delSet.add(s.id);
+        if (s.nameHindi) {
+          delSet.add(s.nameHindi.trim());
+          delSet.add(s.nameHindi.trim().toLowerCase());
+        }
       });
 
-      const allBaseIds = [
-        'sign-good-morning', 'sign-alvida', 'sign-namaste', 'sign-paani',
-        'sign-madad', 'sign-haan', 'sign-nahi', 'sign-dhanyavaad',
-        'sign-doctor', 'sign-khana', 'sign-library', 'sign-attendance',
-        'नमस्ते', 'पानी', 'मदद चाहिए (SOS)', 'शुभ प्रभात (Good Morning)',
-        'अलविदा (Bye)', 'हाँ', 'नहीं', 'खाना', 'डॉक्टर', 'धन्यवाद',
-        'लाइब्रेरी (कॉलेज)', 'अटेंडेंस', 'आभार'
-      ];
-      const delSet = getDeletedSignIds();
-      allBaseIds.forEach(id => delSet.add(id));
+      // Also mark all default IDs
+      try {
+        const res = await fetch('/api/signs', { cache: 'no-store' });
+        const data = await res.json();
+        if (data.success && Array.isArray(data.signs)) {
+          data.signs.forEach((s: CustomSign) => {
+            if (s.id) delSet.add(s.id);
+            if (s.nameHindi) {
+              delSet.add(s.nameHindi.trim());
+              delSet.add(s.nameHindi.trim().toLowerCase());
+            }
+          });
+        }
+      } catch (err) {}
+
       localStorage.setItem(DELETED_SIGNS_KEY, JSON.stringify(Array.from(delSet)));
       localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
     } catch (e) {

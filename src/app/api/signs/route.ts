@@ -37,7 +37,9 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { 
       id, nameHindi, nameEnglish, category, landmarksSample, fingerSignature, 
-      recordedBy, bodyLocation, signType, motionDirection, endBodyLocation 
+      recordedBy, bodyLocation, signType, motionDirection, endBodyLocation,
+      handsCount, handType, secondLandmarksSample, secondFingerSignature, twoHandRelation, twoHandDistance,
+      description, icon
     } = body;
 
     if (!nameHindi) {
@@ -50,7 +52,15 @@ export async function POST(request: Request) {
       nameEnglish: nameEnglish || nameHindi,
       category: category || 'custom',
       landmarksSample: landmarksSample || [],
+      secondLandmarksSample: secondLandmarksSample || undefined,
       fingerSignature: fingerSignature || undefined,
+      secondFingerSignature: secondFingerSignature || undefined,
+      handsCount: handsCount || 1,
+      handType: handType || (handsCount === 2 ? 'both' : 'any'),
+      twoHandRelation: twoHandRelation || undefined,
+      twoHandDistance: twoHandDistance || undefined,
+      description: description || undefined,
+      icon: icon || undefined,
       bodyLocation: bodyLocation || 'neutral',
       signType: signType || 'static',
       motionDirection: motionDirection || 'none',
@@ -73,7 +83,9 @@ export async function PUT(request: Request) {
     const body = await request.json();
     const { 
       id, landmarksSample, fingerSignature, nameHindi, category, 
-      bodyLocation, signType, motionDirection, endBodyLocation 
+      bodyLocation, signType, motionDirection, endBodyLocation,
+      handsCount, handType, secondLandmarksSample, secondFingerSignature, twoHandRelation, twoHandDistance,
+      description, icon
     } = body;
 
     if (!id) {
@@ -82,7 +94,15 @@ export async function PUT(request: Request) {
 
     const updated = updateSign(id, {
       ...(landmarksSample ? { landmarksSample } : {}),
+      ...(secondLandmarksSample ? { secondLandmarksSample } : {}),
       ...(fingerSignature ? { fingerSignature } : {}),
+      ...(secondFingerSignature ? { secondFingerSignature } : {}),
+      ...(handsCount ? { handsCount } : {}),
+      ...(handType ? { handType } : {}),
+      ...(twoHandRelation ? { twoHandRelation } : {}),
+      ...(twoHandDistance !== undefined ? { twoHandDistance } : {}),
+      ...(description ? { description } : {}),
+      ...(icon ? { icon } : {}),
       ...(nameHindi ? { nameHindi } : {}),
       ...(category ? { category } : {}),
       ...(bodyLocation ? { bodyLocation } : {}),

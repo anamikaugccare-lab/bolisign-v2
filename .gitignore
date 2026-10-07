@@ -35,3 +35,6 @@ next-env.d.ts
 
 # Large raw test recordings
 public/v1.mp4
+
+# Temporary scripts
+scratch/

@@ -1,133 +1,597 @@
 [
   {
-    "nameEnglish": "Namastey",
-    "category": "college",
-    "landmarksSample": [
-      [
-        0,
-        0,
-        0
-      ],
-      [
-        -0.2726,
-        -0.4292,
-        0.1514
-      ],
-      [
-        -0.4633,
-        -0.8802,
-        0.1669
-      ],
-      [
-        -0.5884,
-        -1.2243,
-        0.14
-      ],
-      [
-        -0.7455,
-        -1.5073,
-        0.0938
-      ],
-      [
-        -0.3711,
-        -0.9668,
-        0.0071
-      ],
-      [
-        -0.5977,
-        -1.4948,
-        -0.164
-      ],
-      [
-        -0.7574,
-        -1.8822,
-        -0.2967
-      ],
-      [
-        -0.8654,
-        -2.2186,
-        -0.387
-      ],
-      [
-        -0.3486,
-        -0.9373,
-        -0.1809
-      ],
-      [
-        -0.6281,
-        -1.5264,
-        -0.3246
-      ],
-      [
-        -0.8154,
-        -1.9512,
-        -0.4458
-      ],
-      [
-        -0.9628,
-        -2.3241,
-        -0.5482
-      ],
-      [
-        -0.4049,
-        -0.8606,
-        -0.3594
-      ],
-      [
-        -0.6486,
-        -1.4398,
-        -0.4725
-      ],
-      [
-        -0.8229,
-        -1.8448,
-        -0.5677
-      ],
-      [
-        -0.949,
-        -2.1683,
-        -0.6561
-      ],
-      [
-        -0.528,
-        -0.74,
-        -0.5248
-      ],
-      [
-        -0.6871,
-        -1.1391,
-        -0.6464
-      ],
-      [
-        -0.7733,
-        -1.4444,
-        -0.7203
-      ],
-      [
-        -0.8509,
-        -1.7088,
-        -0.7827
-      ]
-    ],
-    "bodyLocation": "chest",
-    "signType": "static",
-    "motionDirection": "none",
-    "recordedBy": "College Employee",
-    "id": "sign-custom-1791134621133",
-    "nameHindi": "नमस्ते",
+    "id": "sign-num-0",
+    "nameHindi": "० (0)",
+    "nameEnglish": "Zero (0)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": false,
+      "ring": false,
+      "pinky": false,
+      "isPinch": true
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "forward",
+    "palmFacing": "front",
+    "description": "अंगूठे और तर्जनी के सिरों को जोड़कर गोल छल्ला (Pinch / O-Loop) बनाएं, हथेली सामने रखें।",
+    "icon": "0️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.870Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-num-1",
+    "nameHindi": "१ (1)",
+    "nameEnglish": "One (1)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": false,
+      "index": true,
+      "middle": false,
+      "ring": false,
+      "pinky": false
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "केवल १ तर्जनी उंगली सीधी ऊपर आसमान की ओर उठाएं (☝️), हथेली सामने (Front)।",
+    "icon": "1️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-num-2",
+    "nameHindi": "२ (2)",
+    "nameEnglish": "Two (2)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": false,
+      "index": true,
+      "middle": true,
+      "ring": false,
+      "pinky": false
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "तर्जनी और मध्यमा को ऊपर उठाकर V आकार (✌️) बनाएं, हथेली सामने रखें।",
+    "icon": "2️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-num-3",
+    "nameHindi": "३ (3)",
+    "nameEnglish": "Three (3)",
+    "category": "number",
+    "handsCount": 1,
     "fingerSignature": {
       "thumb": false,
       "index": true,
       "middle": true,
       "ring": true,
-      "pinky": true,
-      "isPinch": false
+      "pinky": false
     },
-    "createdAt": "2026-10-04T17:23:41.133Z"
+    "bodyLocation": "above_head",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "३ उंगलियां (तर्जनी + मध्यमा + अनामिका) सीधी ऊपर उठाएं, हथेली सामने रखें।",
+    "icon": "3️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
   },
   {
-    "nameEnglish": "Help",
+    "id": "sign-num-4",
+    "nameHindi": "४ (4)",
+    "nameEnglish": "Four (4)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": false,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "चारों उंगलियां सीधी ऊपर रखें, अंगूठा हथेली पर अंदर मुड़ा हो, हथेली सामने रखें।",
+    "icon": "4️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-num-5",
+    "nameHindi": "५ (5)",
+    "nameEnglish": "Five (5)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "पूरा खुला हाथ दिखाएं (सभी ५ उंगलियां सीधी फैली हों ✋), हथेली सामने रखें।",
+    "icon": "5️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-num-6",
+    "nameHindi": "६ (6)",
+    "nameEnglish": "Six (6)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": true,
+      "index": false,
+      "middle": false,
+      "ring": false,
+      "pinky": false,
+      "thumbPointsUp": true
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "अंगूठा ऊपर (Thumbs Up 👍), बाकी चारों उंगलियां मुट्ठी में बंद रखें।",
+    "icon": "6️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-num-7",
+    "nameHindi": "७ (7)",
+    "nameEnglish": "Seven (7)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": false,
+      "ring": false,
+      "pinky": false
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "forward",
+    "palmFacing": "front",
+    "description": "बंदूक का आकार (तर्जनी आगे और अंगूठा ऊपर 👉 90 डिग्री पर खुला)।",
+    "icon": "7️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-num-8",
+    "nameHindi": "८ (8)",
+    "nameEnglish": "Eight (8)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": false,
+      "pinky": false
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "अंगूठा + तर्जनी + मध्यमा (३ उंगलियां खुली), अनामिका और कनिष्ठिका मुट्ठी में बंद।",
+    "icon": "8️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-num-9",
+    "nameHindi": "९ (9)",
+    "nameEnglish": "Nine (9)",
+    "category": "number",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": false
+    },
+    "bodyLocation": "above_head",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "अंगूठा + तर्जनी + मध्यमा + अनामिका (४ उंगलियां खुली), केवल छोटी उंगली बंद।",
+    "icon": "9️⃣",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "handType": "right"
+  },
+  {
+    "id": "sign-principal",
+    "nameHindi": "प्रिंसिपल",
+    "nameEnglish": "Principal / Head",
     "category": "college",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": false,
+      "index": true,
+      "middle": false,
+      "ring": false,
+      "pinky": false
+    },
+    "bodyLocation": "forehead",
+    "handDirection": "horizontal_head",
+    "palmFacing": "front",
+    "description": "१ तर्जनी उंगली को माथे/कनपटी पर क्षैतिज (Horizontal / Salute) रखकर छुएं (संस्थान प्रमुख का चिन्ह)।",
+    "icon": "👨‍🏫",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "recordedBy": "College Admin",
+    "handType": "right"
+  },
+  {
+    "id": "sign-khana",
+    "nameHindi": "खाना",
+    "nameEnglish": "Food / Hunger",
+    "category": "daily",
+    "handsCount": 1,
+    "bodyLocation": "chin",
+    "handDirection": "forward",
+    "palmFacing": "front",
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": false,
+      "pinky": false,
+      "isPinch": true
+    },
+    "description": "उंगलियां आपस में चुटकी की तरह मिलाकर मुंह/ठोड़ी के पास ले जाएं (खाना खाने का इशारा)।",
+    "icon": "🍲",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-paani",
+    "nameHindi": "पानी",
+    "nameEnglish": "Water",
+    "category": "daily",
+    "handsCount": 1,
+    "bodyLocation": "chin",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "fingerSignature": {
+      "thumb": false,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": false
+    },
+    "description": "३ उंगलियों (W आकार) को होंठ/ठोड़ी के पास ले जाकर दो बार छुएं।",
+    "icon": "💧",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-calling",
+    "nameHindi": "कॉलिंग (फोन)",
+    "nameEnglish": "Phone Calling",
+    "category": "daily",
+    "handsCount": 1,
+    "bodyLocation": "cheek",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "fingerSignature": {
+      "thumb": true,
+      "index": false,
+      "middle": false,
+      "ring": false,
+      "pinky": true
+    },
+    "description": "अंगूठा कान पर और छोटी उंगली मुंह के पास रखें (🤙 फोन कॉल का इशारा)।",
+    "icon": "📞",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-madad",
+    "nameHindi": "मदद चाहिए (SOS)",
+    "nameEnglish": "Help / Emergency (SOS)",
+    "category": "emergency",
+    "handsCount": 1,
+    "bodyLocation": "chest",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "fingerSignature": {
+      "thumb": true,
+      "index": false,
+      "middle": false,
+      "ring": false,
+      "pinky": true
+    },
+    "description": "अंगूठा और छोटी उंगली खोलकर छाती पर दिखाएं (आपातकालीन मदद / SOS Shaka)।",
+    "icon": "🆘",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-haan",
+    "nameHindi": "हाँ",
+    "nameEnglish": "Yes",
+    "category": "daily",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": true,
+      "index": false,
+      "middle": false,
+      "ring": false,
+      "pinky": false,
+      "thumbPointsUp": true
+    },
+    "bodyLocation": "chest",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "description": "छाती के सामने अंगूठा ऊपर (Thumbs Up 👍) करके सहमति जताएं।",
+    "icon": "👍",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-nahi",
+    "nameHindi": "नहीं",
+    "nameEnglish": "No",
+    "category": "daily",
+    "handsCount": 1,
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "bodyLocation": "chest",
+    "handDirection": "forward",
+    "palmFacing": "front",
+    "description": "खुली हथेली छाती के सामने रखकर या अंगूठा नीचे (👎) करके 'ना' जताएं।",
+    "icon": "👎",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-file",
+    "nameHindi": "फाइल (दस्तावेज़)",
+    "nameEnglish": "File / Document",
+    "category": "college",
+    "handsCount": 2,
+    "twoHandRelation": "apart",
+    "bodyLocation": "chest",
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "secondFingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "description": "दोनों सीधी हथेलियों को आमने-सामने किताब/फाइल की तरह खोलें (२-हाथ पैरेलल)।",
+    "icon": "📁",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "recordedBy": "College Admin"
+  },
+  {
+    "id": "sign-attendance",
+    "nameHindi": "अटेंडेंस",
+    "nameEnglish": "Attendance",
+    "category": "college",
+    "handsCount": 1,
+    "bodyLocation": "chest",
+    "handDirection": "up",
+    "palmFacing": "front",
+    "fingerSignature": {
+      "thumb": false,
+      "index": true,
+      "middle": false,
+      "ring": false,
+      "pinky": false
+    },
+    "description": "छाती के स्तर पर १ तर्जनी उंगली सीधी ऊपर उठाएं, हथेली सामने (हाजिरी का इशारा)।",
+    "icon": "📋",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "recordedBy": "College Employee"
+  },
+  {
+    "id": "sign-library",
+    "nameHindi": "लाइब्रेरी (कॉलेज)",
+    "nameEnglish": "College Library",
+    "category": "college",
+    "handsCount": 2,
+    "twoHandRelation": "apart",
+    "bodyLocation": "chest",
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "secondFingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "description": "दोनों हाथों की हथेलियों को खुली किताब की तरह छाती के सामने रखें (Book Shape)।",
+    "icon": "📚",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z",
+    "recordedBy": "College Employee"
+  },
+  {
+    "id": "sign-namaste",
+    "nameHindi": "नमस्ते",
+    "nameEnglish": "Namaste / Greeting",
+    "category": "daily",
+    "handsCount": 2,
+    "twoHandRelation": "touching_tips",
+    "bodyLocation": "chest",
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "secondFingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "description": "दोनों हाथों की हथेलियों को छाती के पास आपस में जोड़ें (🙏)।",
+    "icon": "🙏",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-doctor",
+    "nameHindi": "डॉक्टर",
+    "nameEnglish": "Doctor / Medical",
+    "category": "emergency",
+    "handsCount": 2,
+    "twoHandRelation": "resting_on_palm",
+    "bodyLocation": "chest",
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "secondFingerSignature": {
+      "thumb": false,
+      "index": true,
+      "middle": true,
+      "ring": false,
+      "pinky": false
+    },
+    "description": "एक हाथ की कलाई पर दूसरे हाथ की २ उंगलियों से नब्ज जांचें।",
+    "icon": "🩺",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-dhanyavaad",
+    "nameHindi": "धन्यवाद",
+    "nameEnglish": "Thank You",
+    "category": "daily",
+    "handsCount": 1,
+    "bodyLocation": "chin",
+    "signType": "dynamic",
+    "motionDirection": "outward",
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "description": "खुले हाथ को ठोड़ी से छूकर आगे की ओर बढ़ाएं।",
+    "icon": "💐",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-good-morning",
+    "nameHindi": "शुभ प्रभात",
+    "nameEnglish": "Good Morning",
+    "category": "daily",
+    "handsCount": 1,
+    "signType": "dynamic",
+    "motionDirection": "upward",
+    "bodyLocation": "chest",
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "description": "छाती से खुले हाथ को सूर्योदय की तरह ऊपर उठाएं।",
+    "icon": "🌅",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-alvida",
+    "nameHindi": "अलविदा (Bye)",
+    "nameEnglish": "Goodbye / Bye",
+    "category": "daily",
+    "handsCount": 1,
+    "signType": "dynamic",
+    "motionDirection": "wave",
+    "bodyLocation": "chest",
+    "fingerSignature": {
+      "thumb": true,
+      "index": true,
+      "middle": true,
+      "ring": true,
+      "pinky": true
+    },
+    "description": "छाती के पास खुले हाथ से वेव (लहराना) करें।",
+    "icon": "👋",
+    "landmarksSample": [],
+    "createdAt": "2026-10-06T18:02:24.948Z"
+  },
+  {
+    "id": "sign-dadaji",
+    "nameHindi": "दादाजी (Dadaji)",
+    "nameEnglish": "Grandfather (Dadaji)",
+    "category": "daily",
+    "handsCount": 1,
+    "handType": "left",
+    "bodyLocation": "forehead",
+    "handDirection": "horizontal_head",
+    "icon": "👴"
+  },
+  {
+    "id": "sign-dadiji",
+    "nameHindi": "दादीजी (Dadiji)",
+    "nameEnglish": "Grandmother (Dadiji)",
+    "category": "daily",
+    "handsCount": 1,
+    "handType": "left",
+    "bodyLocation": "chin",
+    "handDirection": "horizontal_head",
+    "icon": "👵"
+  },
+  {
+    "nameEnglish": "Fever",
+    "category": "emergency",
     "landmarksSample": [
       [
         0,
@@ -135,120 +599,250 @@
         0
       ],
       [
-        0.4027,
-        -0.2744,
-        -0.1511
+        0.4234,
+        -0.4633,
+        -0.1286
       ],
       [
-        0.5544,
-        -0.664,
-        -0.1905
+        1.0467,
+        -0.8904,
+        -0.3608
       ],
       [
-        0.5888,
-        -0.9659,
-        -0.2289
+        1.6992,
+        -1.0783,
+        -0.5862
       ],
       [
-        0.7129,
-        -1.2108,
-        -0.2626
+        2.2096,
+        -1.164,
+        -0.8244
       ],
       [
-        0.2472,
-        -1.0138,
-        -0.0228
+        0.7326,
+        -1.0991,
+        -0.7732
       ],
       [
-        0.2551,
-        -1.3723,
-        -0.1385
+        1.8448,
+        -1.2553,
+        -1.2134
       ],
       [
-        0.2458,
-        -1.5873,
-        -0.2462
+        2.6083,
+        -1.3011,
+        -1.4388
       ],
       [
-        0.2128,
-        -1.7811,
-        -0.3246
+        3.1881,
+        -1.3465,
+        -1.5635
       ],
       [
-        -0.0118,
-        -0.9999,
-        -0.0383
+        0.6094,
+        -0.7929,
+        -0.9376
       ],
       [
-        -0.0104,
-        -1.3872,
-        -0.1395
+        1.844,
+        -0.9573,
+        -1.3619
       ],
       [
-        -0.0159,
-        -1.6298,
-        -0.2367
+        2.7073,
+        -0.9963,
+        -1.5071
       ],
       [
-        -0.02,
-        -1.8315,
-        -0.305
+        3.3814,
+        -1.0212,
+        -1.5985
       ],
       [
-        -0.2536,
-        -0.9107,
-        -0.0867
+        0.5856,
+        -0.4058,
+        -1.0827
       ],
       [
-        -0.2663,
-        -1.2606,
-        -0.2017
+        1.7764,
+        -0.5757,
+        -1.4618
       ],
       [
-        -0.2457,
-        -1.4835,
-        -0.2718
+        2.6388,
+        -0.6139,
+        -1.5541
       ],
       [
-        -0.2206,
-        -1.6769,
-        -0.317
+        3.2843,
+        -0.6399,
+        -1.5763
       ],
       [
-        -0.4927,
-        -0.7632,
-        -0.1549
+        0.6494,
+        0.0173,
+        -1.2253
       ],
       [
-        -0.5338,
-        -1.0445,
-        -0.2615
+        1.5931,
+        -0.1041,
+        -1.5216
       ],
       [
-        -0.5243,
-        -1.2382,
-        -0.3076
+        2.286,
+        -0.1923,
+        -1.5908
       ],
       [
-        -0.497,
-        -1.4187,
-        -0.3337
+        2.8362,
+        -0.25,
+        -1.6155
       ]
     ],
     "bodyLocation": "forehead",
     "signType": "static",
     "motionDirection": "none",
     "recordedBy": "College Employee",
-    "id": "sign-custom-1791134835554",
-    "nameHindi": "मदद",
+    "id": "sign-custom-1791359989777",
+    "nameHindi": "बुखार",
     "fingerSignature": {
-      "thumb": false,
+      "thumb": true,
       "index": true,
       "middle": true,
       "ring": true,
       "pinky": true,
       "isPinch": false
     },
-    "createdAt": "2026-10-04T17:27:15.554Z"
+    "handsCount": 1,
+    "handType": "any",
+    "createdAt": "2026-10-07T07:59:49.777Z"
+  },
+  {
+    "nameEnglish": "Shree",
+    "category": "daily",
+    "landmarksSample": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0.4339,
+        -0.2798,
+        -0.1093
+      ],
+      [
+        0.6281,
+        -0.657,
+        -0.1773
+      ],
+      [
+        0.4033,
+        -0.901,
+        -0.2692
+      ],
+      [
+        0.1462,
+        -1.0702,
+        -0.3342
+      ],
+      [
+        0.5413,
+        -0.9797,
+        -0.0069
+      ],
+      [
+        0.7065,
+        -1.2509,
+        -0.3133
+      ],
+      [
+        0.7141,
+        -0.9466,
+        -0.4982
+      ],
+      [
+        0.6615,
+        -0.6897,
+        -0.5556
+      ],
+      [
+        0.1825,
+        -0.9832,
+        -0.07
+      ],
+      [
+        0.3759,
+        -1.2478,
+        -0.371
+      ],
+      [
+        0.4087,
+        -0.8444,
+        -0.4495
+      ],
+      [
+        0.3551,
+        -0.6031,
+        -0.4154
+      ],
+      [
+        -0.1936,
+        -0.9406,
+        -0.1778
+      ],
+      [
+        -0.0406,
+        -1.21,
+        -0.4802
+      ],
+      [
+        0.051,
+        -0.8272,
+        -0.4115
+      ],
+      [
+        0.0147,
+        -0.6055,
+        -0.2752
+      ],
+      [
+        -0.5974,
+        -0.8537,
+        -0.2933
+      ],
+      [
+        -0.443,
+        -1.0928,
+        -0.4708
+      ],
+      [
+        -0.3065,
+        -0.8166,
+        -0.3595
+      ],
+      [
+        -0.2934,
+        -0.6399,
+        -0.2199
+      ]
+    ],
+    "bodyLocation": "chin",
+    "signType": "static",
+    "motionDirection": "none",
+    "recordedBy": "College Employee",
+    "id": "sign-custom-1791361912435",
+    "nameHindi": "श्री",
+    "fingerSignature": {
+      "thumb": false,
+      "index": false,
+      "middle": false,
+      "ring": false,
+      "pinky": false,
+      "isPinch": false
+    },
+    "handsCount": 1,
+    "handType": "any",
+    "createdAt": "2026-10-07T08:31:52.435Z"
   }
 ]

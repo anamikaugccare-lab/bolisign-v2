@@ -16,6 +16,7 @@ export default function SignDictionaryPage() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedLocation, setSelectedLocation] = useState<string>('all');
+  const [selectedHandFilter, setSelectedHandFilter] = useState<'all_hands' | '1_hand' | '2_hands'>('all_hands');
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [isRestoring, setIsRestoring] = useState<boolean>(false);
   const [isClearingAll, setIsClearingAll] = useState<boolean>(false);
